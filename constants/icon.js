@@ -13,6 +13,8 @@ const volume = require("../assets/icon/volume.svg");
 const homie = require("../assets/icon/homie.png");
 const book = require("../assets/icon/book.png");
 const user = require("../assets/icon/user.png");
+const arrow = require("../assets/icon/arrow.png");
+const question = require("../assets/icon/question.png");
 
 export default {
   back,
@@ -30,4 +32,6 @@ export default {
   homie,
   book,
   user,
+  arrow,
+  question,
 };
