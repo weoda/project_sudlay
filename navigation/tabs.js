@@ -9,6 +9,9 @@ import { COLORS, icons } from "../constants";
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Course from "../screens/Course";
+// test
+import Detail from "../screens/Detail";
+import Settings from "../screens/Settings";
 
 const Tab = createBottomTabNavigator();
 
@@ -132,6 +135,42 @@ const Tabs = () => {
           tabBarButton: (props) => <TabBarCustomButton {...props} />,
         }}
       />
+      {/* <Tab.Screen
+        name="Detail"
+        component={Detail}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={icons.arrow}
+              resizeMode="contain"
+              style={{
+                width: 28,
+                height: 28,
+                tintColor: focused ? COLORS.primary : COLORS.gray,
+              }}
+            />
+          ),
+          tabBarButton: (props) => <TabBarCustomButton {...props} />,
+        }}
+      /> */}
+      {/* <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={icons.question}
+              resizeMode="contain"
+              style={{
+                width: 28,
+                height: 28,
+                tintColor: focused ? COLORS.primary : COLORS.gray,
+              }}
+            />
+          ),
+          tabBarButton: (props) => <TabBarCustomButton {...props} />,
+        }}
+      /> */}
     </Tab.Navigator>
   );
 };

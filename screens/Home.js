@@ -6,333 +6,86 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS } from "../constants";
-
-const Home = () => {
+import { icons, COLORS, FONTS, images } from "../constants";
+import Header from "../components/Header";
+import SuggestCard from "../components/SuggestCard";
+import * as Progress from "react-native-progress";
+const Home = ({ navigation }) => {
   let a = [0, 1, 2];
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          height: 72,
-        }}
-      >
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingLeft: 20,
-            justifyContent: "center",
-          }}
-        >
-          <Image
-            source={null}
-            resizeMode="contain"
-            style={{
-              tintColor: COLORS.primary,
-              width: 24,
-              height: 24,
-            }}
-          />
-        </TouchableOpacity>
-
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <View
-            style={{
-              width: "70%",
-              height: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 20,
-                fontFamily: "Roboto",
-                color: COLORS.primary,
-              }}
-            >
-              SUDLAY
-            </Text>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingRight: 20,
-            justifyContent: "center",
-          }}
-        >
-          <Image
-            source={icons.question}
-            resizeMode="contain"
-            style={{
-              tintColor: COLORS.primary,
-              width: 20,
-              height: 20,
-            }}
-          />
-        </TouchableOpacity>
-      </View>
+      <Header />
       <ScrollView style={styles.mainBody}>
-        <View
-          style={{
-            height: 300,
-            backgroundColor: "red",
-            padding: 20,
-            justifyContent: "space-between",
-          }}
-        >
-          {/* jijig fragments */}
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              padding: 10,
-              backgroundColor: "white",
-              height: 72,
-              alignItems: "center",
-            }}
-          >
-            <View
-              style={{
-                height: 48,
-                width: 48,
-                marginRight: 10,
-                backgroundColor: "purple",
-              }}
-            ></View>
-            <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text>Одон орон судлал</Text>
-              <View
-                style={{
-                  height: 10,
-                  width: 270,
-                  backgroundColor: "black",
-                  marginTop: 10,
-                }}
-              ></View>
-            </View>
-          </View>
-          {/* jijig fragments */}
-          {/* jijig fragments */}
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              padding: 10,
-              backgroundColor: "white",
-              height: 72,
-              alignItems: "center",
-            }}
-          >
-            <View
-              style={{
-                height: 48,
-                width: 48,
-                marginRight: 10,
-                backgroundColor: "purple",
-              }}
-            ></View>
-            <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text>Одон орон судлал</Text>
-              <View
-                style={{
-                  height: 10,
-                  width: 270,
-                  backgroundColor: "black",
-                  marginTop: 10,
-                }}
-              ></View>
-            </View>
-          </View>
-          {/* jijig fragments */}
-          {/* jijig fragments */}
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              padding: 10,
-              backgroundColor: "white",
-              height: 72,
-              alignItems: "center",
-            }}
-          >
-            <View
-              style={{
-                height: 48,
-                width: 48,
-                marginRight: 10,
-                backgroundColor: "purple",
-              }}
-            ></View>
-            <View style={{ display: "flex", flexDirection: "column" }}>
-              <Text>Одон орон судлал</Text>
-              <View
-                style={{
-                  height: 10,
-                  width: 270,
-                  backgroundColor: "black",
-                  marginTop: 10,
-                }}
-              ></View>
-            </View>
-          </View>
-          {/* jijig fragments */}
+        <View style={styles.firstArea}>
+          {a.map(() => {
+            return (
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Detail")}
+                style={[styles.firstAreaButton, styles.shadow]}
+              >
+                <View style={styles.firstAreaBtnIcon}>
+                  <Image
+                    source={icons.star}
+                    resizeMode="contain"
+                    style={{
+                      width: 28,
+                      height: 28,
+                      tintColor: COLORS.primary,
+                    }}
+                  />
+                </View>
+                <View
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Text style={{ paddingBottom: 10 }}>Одон орон судлал</Text>
+                  <Progress.Bar
+                    progress={0.7}
+                    width={280}
+                    color={COLORS.primary}
+                    unfilledColor={"#E0E0E0"}
+                    borderWidth={0}
+                    borderRadius={5}
+                    height={10}
+                  />
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </View>
-        <ScrollView
-          horizontal={true}
-          style={{
-            height: 245,
-            backgroundColor: "blue",
-            display: "flex",
-            flexDirection: "row",
-            padding: 20,
-          }}
-        >
-          {/* Jijig fragment -- card */}
-          <View
-            style={{
-              width: 150,
-              height: 200,
-              backgroundColor: "white",
-              marginRight: 20,
-              padding: 10,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View style={{ height: "75%", backgroundColor: "orange" }}>
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-              >
-                Газарзүй
-              </Text>
-            </View>
-            <Text style={{ color: COLORS.secondary }}>42 сэдэв</Text>
-            <Text>1000 оноо</Text>
-          </View>
-          {/* Jijig fragment -- card */}
-          {/* Jijig fragment -- card */}
-          <View
-            style={{
-              width: 150,
-              height: 200,
-              backgroundColor: "white",
-              marginRight: 20,
-              padding: 10,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View style={{ height: "75%", backgroundColor: "orange" }}>
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-              >
-                Газарзүй
-              </Text>
-            </View>
-            <Text style={{ color: COLORS.secondary }}>42 сэдэв</Text>
-            <Text>1000 оноо</Text>
-          </View>
-          {/* Jijig fragment -- card */}
-          {/* Jijig fragment -- card */}
-          <View
-            style={{
-              width: 150,
-              height: 200,
-              backgroundColor: "white",
-              marginRight: 20,
-              padding: 10,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View style={{ height: "75%", backgroundColor: "orange" }}>
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-              >
-                Газарзүй
-              </Text>
-            </View>
-            <Text style={{ color: COLORS.secondary }}>42 сэдэв</Text>
-            <Text>1000 оноо</Text>
-          </View>
-          {/* Jijig fragment -- card */}
-          {/* Jijig fragment -- card */}
-          <View
-            style={{
-              width: 150,
-              height: 200,
-              backgroundColor: "white",
-              marginRight: 20,
-              padding: 10,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View style={{ height: "75%", backgroundColor: "orange" }}>
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-              >
-                Газарзүй
-              </Text>
-            </View>
-            <Text style={{ color: COLORS.secondary }}>42 сэдэв</Text>
-            <Text>1000 оноо</Text>
-          </View>
-          {/* Jijig fragment -- card */}
+        <ScrollView horizontal={true} style={styles.secondArea}>
+          {a.map(() => {
+            return (
+              <SuggestCard
+                name={"Газарзүй"}
+                number={"42 сэдэв"}
+                value={"1000 оноо"}
+                navigation
+              />
+            );
+          })}
         </ScrollView>
-        <ScrollView
-          horizontal={true}
-          style={{
-            height: 300,
-            backgroundColor: "pink",
-            padding: 20,
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          {/* Jijig fragment 3 */}
-          <View
-            style={{
-              height: 200,
-              width: 300,
-              backgroundColor: "white",
-              marginRight: 20,
-            }}
-          >
-            <Text>ЭНД ЮУ Ч БАЙХЫН ЗДУ</Text>
-          </View>
-          {/* Jijig fragment 3 */}
-          {/* Jijig fragment 3 */}
-          <View
-            style={{
-              height: 200,
-              width: 300,
-              backgroundColor: "white",
-              marginRight: 20,
-            }}
-          >
-            <Text>ЭНД ЮУ Ч БАЙХЫН ЗДУ</Text>
-          </View>
-          {/* Jijig fragment 3 */}
-          {/* Jijig fragment 3 */}
-          <View
-            style={{
-              height: 200,
-              width: 300,
-              backgroundColor: "white",
-              marginRight: 20,
-            }}
-          >
-            <Text>ЭНД ЮУ Ч БАЙХЫН ЗДУ</Text>
-          </View>
-          {/* Jijig fragment 3 */}
+        <ScrollView horizontal={true} style={styles.thirdArea}>
+          {a.map(() => {
+            return (
+              <View style={styles.thirdAreaCard}>
+                <ImageBackground
+                  source={images.banner}
+                  imageStyle={{ borderRadius: 10 }}
+                  style={{
+                    height: 200,
+                    width: 300,
+                    position: "absolute",
+                    borderRadius: 10,
+                  }}
+                />
+              </View>
+            );
+          })}
         </ScrollView>
       </ScrollView>
     </View>
@@ -351,5 +104,63 @@ const styles = StyleSheet.create({
   mainBody: {
     display: "flex",
     flexDirection: "column",
+  },
+  firstArea: {
+    height: 300,
+    padding: 20,
+    justifyContent: "space-between",
+  },
+  secondArea: {
+    height: 245,
+    display: "flex",
+    flexDirection: "row",
+    padding: 20,
+  },
+  thirdArea: {
+    height: 300,
+    padding: 20,
+    display: "flex",
+    flexDirection: "row",
+  },
+  firstAreaButton: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 10,
+    backgroundColor: "white",
+    height: 72,
+    alignItems: "center",
+    borderRadius: 20,
+  },
+  firstAreaBtnIcon: {
+    height: 48,
+    width: 48,
+    marginRight: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#E3E3E3",
+    borderRadius: 10,
+  },
+  firstAreaBtnBar: {
+    height: 10,
+    width: 270,
+    backgroundColor: "black",
+    marginTop: 10,
+  },
+  thirdAreaCard: {
+    height: 200,
+    width: 300,
+    backgroundColor: "white",
+    marginRight: 20,
+  },
+  shadow: {
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+
+    elevation: 10,
   },
 });

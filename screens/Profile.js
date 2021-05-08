@@ -8,75 +8,13 @@ import {
   ScrollView,
 } from "react-native";
 import { icons, COLORS, FONTS } from "../constants";
-
-const Profile = () => {
+import Header from "../components/Header";
+import OwnedCourseCard from "../components/OwnedCourseCard";
+const Profile = ({ navigation }) => {
+  let a = [0, 1, 2];
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flexDirection: "row",
-          height: 72,
-        }}
-      >
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingLeft: 20,
-            justifyContent: "center",
-          }}
-        >
-          <Image
-            source={icons.arrow}
-            resizeMode="contain"
-            style={{
-              tintColor: COLORS.primary,
-              width: 24,
-              height: 24,
-            }}
-          />
-        </TouchableOpacity>
-
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <View
-            style={{
-              width: "70%",
-              height: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 20,
-                fontFamily: "Roboto",
-                color: COLORS.primary,
-              }}
-            >
-              SUDLAY
-            </Text>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingRight: 20,
-            justifyContent: "center",
-          }}
-        >
-          <Image
-            source={icons.question}
-            resizeMode="contain"
-            style={{
-              tintColor: COLORS.primary,
-              width: 24,
-              height: 24,
-            }}
-          />
-        </TouchableOpacity>
-      </View>
+      <Header />
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <View
           style={{
@@ -179,7 +117,8 @@ const Profile = () => {
               >
                 <Text>Засварлах</Text>
               </View>
-              <View
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Settings")}
                 style={{
                   width: "50%",
                   justifyContent: "center",
@@ -187,7 +126,7 @@ const Profile = () => {
                 }}
               >
                 <Text>Тохиргоо</Text>
-              </View>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -201,105 +140,9 @@ const Profile = () => {
             padding: 20,
           }}
         >
-          {/* jijig fragment card with circle  */}
-          <View
-            style={{
-              width: 180,
-              height: 320,
-              backgroundColor: "white",
-              marginRight: 20,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View
-              style={{ padding: 10, height: "50%", backgroundColor: "blue" }}
-            >
-              <Text style={{ fontSize: 24, color: "white" }}>
-                Одон орон судлал
-              </Text>
-            </View>
-            <View
-              style={{
-                padding: 10,
-                height: "50%",
-                backgroundColor: "green",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={{ backgroundColor: "white", height: 120, width: 120 }}
-              ></View>
-            </View>
-          </View>
-          {/* jijig fragment card with circle  */}
-          {/* jijig fragment card with circle  */}
-          <View
-            style={{
-              width: 180,
-              height: 320,
-              backgroundColor: "white",
-              marginRight: 20,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View
-              style={{ padding: 10, height: "50%", backgroundColor: "blue" }}
-            >
-              <Text style={{ fontSize: 24, color: "white" }}>
-                Одон орон судлал
-              </Text>
-            </View>
-            <View
-              style={{
-                padding: 10,
-                height: "50%",
-                backgroundColor: "green",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={{ backgroundColor: "white", height: 120, width: 120 }}
-              ></View>
-            </View>
-          </View>
-          {/* jijig fragment card with circle  */}
-          {/* jijig fragment card with circle  */}
-          <View
-            style={{
-              width: 180,
-              height: 320,
-              backgroundColor: "white",
-              marginRight: 20,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <View
-              style={{ padding: 10, height: "50%", backgroundColor: "blue" }}
-            >
-              <Text style={{ fontSize: 24, color: "white" }}>
-                Одон орон судлал
-              </Text>
-            </View>
-            <View
-              style={{
-                padding: 10,
-                height: "50%",
-                backgroundColor: "green",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={{ backgroundColor: "white", height: 120, width: 120 }}
-              ></View>
-            </View>
-          </View>
-          {/* jijig fragment card with circle  */}
+          {a.map(() => {
+            return <OwnedCourseCard text={"test1test1test1"} />;
+          })}
         </ScrollView>
       </ScrollView>
     </View>

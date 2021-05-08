@@ -6,6 +6,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import Course from "./screens/Course";
 import Profile from "./screens/Profile";
 import Tabs from "./navigation/tabs";
+import Detail from "./screens/Detail";
+import Settings from "./screens/Settings";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -20,6 +22,8 @@ export default function App() {
         <Stack.Screen name="Home" component={Tabs} />
         <Stack.Screen name="Course" component={Course} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
   );

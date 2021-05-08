@@ -6,7 +6,6 @@ const home_2 = require("../assets/icon/home_2.svg");
 const language = require("../assets/icon/language.svg");
 const phone = require("../assets/icon/phone.svg");
 const reset = require("../assets/icon/reset.svg");
-const star = require("../assets/icon/star.svg");
 const user_1 = require("../assets/icon/user_1.svg");
 const user_2 = require("../assets/icon/user_2.svg");
 const volume = require("../assets/icon/volume.svg");
@@ -15,7 +14,8 @@ const book = require("../assets/icon/book.png");
 const user = require("../assets/icon/user.png");
 const arrow = require("../assets/icon/arrow.png");
 const question = require("../assets/icon/question.png");
-
+const playArrow = require("../assets/icon/playArrow.png");
+const star = require("../assets/icon/star.png");
 export default {
   back,
   envelope,
@@ -34,4 +34,6 @@ export default {
   user,
   arrow,
   question,
+  playArrow,
+  star,
 };
