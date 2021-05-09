@@ -8,6 +8,9 @@ const star = require("../assets/icon/star.png");
 const loupe = require("../assets/icon/loupe.png");
 const lock = require("../assets/icon/lock.png");
 const userLogin = require("../assets/icon/userLogin.png");
+const telephone = require("../assets/icon/telephone.png");
+const mail = require("../assets/icon/mail.png");
+
 export default {
   homie,
   book,
@@ -19,4 +22,6 @@ export default {
   loupe,
   lock,
   userLogin,
+  telephone,
+  mail,
 };

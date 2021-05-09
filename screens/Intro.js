@@ -9,7 +9,7 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS, images } from "../constants";
+import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 
 // Intro компонент "default export" хийсэн!!!
 const Intro = ({ navigation }) => {
@@ -30,9 +30,9 @@ const Intro = ({ navigation }) => {
           backgroundColor: "white",
           position: "absolute",
           bottom: 0,
-          paddingHorizontal: 20,
-          paddingTop: 100,
-          paddingBottom: 30,
+          paddingHorizontal: SIZE.big_padding,
+          paddingTop: SIZE.sml_padding * 10,
+          paddingBottom: SIZE.sml_padding * 3,
         }}
       >
         <View style={{ height: "50%" }}>
@@ -63,7 +63,7 @@ const Intro = ({ navigation }) => {
                 width: 174,
                 borderWidth: 2,
                 borderColor: COLORS.primary,
-                borderRadius: 10,
+                borderRadius: SIZE.sml_radius,
                 alignItems: "center",
                 justifyContent: "center",
               }}
@@ -76,7 +76,7 @@ const Intro = ({ navigation }) => {
                 height: 48,
                 width: 174,
                 backgroundColor: COLORS.primary,
-                borderRadius: 10,
+                borderRadius: SIZE.sml_radius,
                 alignItems: "center",
                 justifyContent: "center",
               }}
@@ -91,7 +91,7 @@ const Intro = ({ navigation }) => {
           {
             width: 144,
             height: 144,
-            borderRadius: 30,
+            borderRadius: SIZE.sml_radius * 3,
             position: "absolute",
             alignSelf: "center",
             top: "40%",
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ffffff",
-    marginTop: 30,
+    marginTop: SIZE.sml_margin * 3,
   },
   shadow: {
     shadowColor: COLORS.primary,

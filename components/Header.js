@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 //Header компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { icons, COLORS, FONTS } from "../constants";
+import { icons, COLORS, FONTS, SIZE } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
 /** Header компонент нь дэлгэцийн дээд хэсэгт байрлах
@@ -25,6 +25,8 @@ const Header = ({ ...props }) => {
       style={{
         flexDirection: "row",
         height: 72,
+        borderBottomWidth: 0.2,
+        borderColor: COLORS.gray,
       }}
     >
       <TouchableOpacity onPress={() => props.leftPress()} style={styles.btn}>
@@ -37,7 +39,9 @@ const Header = ({ ...props }) => {
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <View style={styles.textArea}>
-          <Text style={styles.mainText}>{props.text}</Text>
+          <Text style={[styles.mainText, { ...FONTS.largeText }]}>
+            {props.text}
+          </Text>
         </View>
       </View>
 

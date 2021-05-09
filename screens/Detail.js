@@ -8,7 +8,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { icons, COLORS, FONTS, images } from "../constants";
+import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 // Detail компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
@@ -66,14 +66,14 @@ const Detail = () => {
             ultricies erat
           </Text>
         </View>
-        <View style={{ padding: 20 }}>
+        <View style={{ padding: SIZE.big_padding }}>
           <Text
             style={{ fontSize: 16, fontWeight: "bold", color: COLORS.gray }}
           >
             Үнэ: 1000 оноо
           </Text>
         </View>
-        <View style={{ padding: 20, height: 72 }}>
+        <View style={{ padding: SIZE.big_padding, height: 72 }}>
           <View style={styles.courseBtn}>
             <Text
               style={{
@@ -86,7 +86,7 @@ const Detail = () => {
             </Text>
           </View>
         </View>
-        <View style={{ padding: 20 }}>
+        <View style={{ padding: SIZE.big_padding }}>
           <View style={styles.header}>
             <Text style={styles.headerText}>Хичээлүүд</Text>
           </View>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#F9F9F9",
-    marginTop: 30,
+    marginTop: SIZE.sml_margin * 3,
   },
   header: {},
   headerText: {
@@ -159,22 +159,22 @@ const styles = StyleSheet.create({
   courseTitleHeader: {
     display: "flex",
     flexDirection: "row",
-    padding: 20,
+    padding: SIZE.big_padding,
     height: 72,
     alignItems: "center",
   },
   courseTitleIcon: {
     height: 48,
     width: 48,
-    marginRight: 10,
+    marginRight: SIZE.sml_margin,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#E3E3E3",
-    borderRadius: 10,
+    borderRadius: SIZE.sml_radius,
   },
   courseDesc: {
     fontSize: 16,
-    paddingHorizontal: 20,
+    paddingHorizontal: SIZE.big_padding,
     color: COLORS.gray,
     textAlign: "justify",
   },
@@ -184,21 +184,21 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: COLORS.secondary,
     height: 48,
-    borderRadius: 10,
+    borderRadius: SIZE.sml_radius,
   },
   courseMembers: {
     display: "flex",
     flexDirection: "column",
-    paddingHorizontal: 20,
-    paddingBottom: 60,
+    paddingHorizontal: SIZE.big_padding,
+    paddingBottom: SIZE.big_padding * 6,
   },
   courseMemberComponent: {
     height: 72,
     backgroundColor: "white",
     display: "flex",
     flexDirection: "row",
-    marginBottom: 20,
-    borderRadius: 10,
+    marginBottom: SIZE.big_margin,
+    borderRadius: SIZE.sml_radius,
   },
   courseMemberI: {
     height: "100%",

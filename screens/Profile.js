@@ -9,7 +9,7 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS, images } from "../constants";
+import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 // Profile компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import OwnedCourseCard from "../components/OwnedCourseCard";
@@ -49,7 +49,7 @@ const Profile = ({ navigation }) => {
                 height: 128,
                 width: 128,
                 position: "absolute",
-                borderRadius: 10,
+                borderRadius: SIZE.big_radius,
               }}
             />
           </View>
@@ -160,7 +160,7 @@ const Profile = ({ navigation }) => {
             height: 370,
             display: "flex",
             flexDirection: "row",
-            padding: 20,
+            padding: SIZE.big_padding,
           }}
         >
           {a.map(() => {
@@ -186,10 +186,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#F9F9F9",
-    marginTop: 30,
+    marginTop: SIZE.sml_margin * 3,
   },
   title: {
-    paddingHorizontal: 20,
+    paddingHorizontal: SIZE.big_padding,
   },
   titleText: {
     fontSize: 20,
@@ -200,10 +200,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     height: 200,
     backgroundColor: "white",
-    margin: 20,
+    margin: SIZE.sml_margin,
     alignItems: "center",
-    paddingHorizontal: 20,
-    borderRadius: 10,
+    paddingHorizontal: SIZE.big_padding,
+    borderRadius: SIZE.sml_radius,
   },
   shadow: {
     shadowColor: COLORS.primary,

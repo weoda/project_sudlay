@@ -10,7 +10,7 @@ import {
   TextInput,
   ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS, images } from "../constants";
+import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 // Course компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import SuggestCard from "../components/SuggestCard";
@@ -36,8 +36,8 @@ const Course = ({ navigation }) => {
         <View
           style={{
             height: 65,
-            paddingHorizontal: 20,
-            paddingVertical: 10,
+            paddingHorizontal: SIZE.big_padding,
+            paddingVertical: SIZE.sml_padding,
           }}
         >
           <View style={[styles.searchArea, styles.shadow]}>
@@ -56,7 +56,7 @@ const Course = ({ navigation }) => {
                 width: 300,
                 height: 48,
                 backgroundColor: "white",
-                marginLeft: 10,
+                marginLeft: SIZE.sml_margin,
               }}
             />
           </View>
@@ -87,7 +87,7 @@ const Course = ({ navigation }) => {
           >
             <ImageBackground
               source={images.compass}
-              imageStyle={{ borderRadius: 10 }}
+              imageStyle={{ borderRadius: SIZE.sml_radius }}
               style={styles.topCourseImage}
             />
             <Text style={styles.topCourseText}>Газарзүй</Text>
@@ -100,13 +100,13 @@ const Course = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate("Detail")}
             style={[
-              { width: "100%", height: 280, marginTop: 20 },
+              { width: "100%", height: 280, marginTop: SIZE.big_margin },
               styles.shadow,
             ]}
           >
             <ImageBackground
               source={images.compass}
-              imageStyle={{ borderRadius: 10 }}
+              imageStyle={{ borderRadius: SIZE.sml_radius }}
               style={styles.topCourseImage}
             />
             <Text style={styles.topCourseText}>Газарзүй</Text>
@@ -128,17 +128,17 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#F9F9F9",
-    marginTop: 30,
+    marginTop: SIZE.sml_margin * 3,
   },
   header: {
-    paddingHorizontal: 20,
+    paddingHorizontal: SIZE.big_padding,
   },
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
   },
   topCourse: {
-    padding: 20,
+    padding: SIZE.big_padding,
     height: 680,
     display: "flex",
     flexDirection: "column",
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     height: 280,
     width: "100%",
     position: "absolute",
-    borderRadius: 10,
+    borderRadius: SIZE.sml_radius,
   },
   topCourseTag: {
     position: "absolute",
@@ -171,14 +171,14 @@ const styles = StyleSheet.create({
     height: 245,
     display: "flex",
     flexDirection: "row",
-    padding: 20,
+    padding: SIZE.big_padding,
   },
   searchArea: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 10,
-    borderRadius: 10,
+    paddingHorizontal: SIZE.sml_padding,
+    borderRadius: SIZE.sml_radius,
     backgroundColor: "white",
   },
   shadow: {

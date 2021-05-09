@@ -9,7 +9,7 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS, images } from "../constants";
+import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 // Home компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import SuggestCard from "../components/SuggestCard";
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#F9F9F9",
-    marginTop: 30,
+    marginTop: SIZE.sml_margin * 3,
   },
   mainBody: {
     display: "flex",
@@ -123,59 +123,60 @@ const styles = StyleSheet.create({
   },
   firstArea: {
     height: 300,
-    padding: 20,
+    padding: SIZE.big_padding,
     justifyContent: "space-between",
   },
   secondArea: {
     height: 245,
     display: "flex",
     flexDirection: "row",
-    padding: 20,
+    padding: SIZE.big_padding,
   },
   thirdArea: {
     height: 300,
-    padding: 20,
+    padding: SIZE.big_padding,
     display: "flex",
     flexDirection: "row",
   },
   firstAreaCard: {
     display: "flex",
     flexDirection: "row",
-    padding: 10,
+    padding: SIZE.sml_padding,
     backgroundColor: "white",
     height: 72,
     alignItems: "center",
-    borderRadius: 20,
+    borderRadius: SIZE.big_radius,
   },
   firstAreaCardIcon: {
     height: 48,
     width: 48,
-    marginRight: 10,
+    marginRight: SIZE.sml_margin,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#E3E3E3",
-    borderRadius: 10,
+    borderRadius: SIZE.sml_radius,
   },
   firstAreaBtnBar: {
     height: 10,
     width: 270,
     backgroundColor: "black",
-    marginTop: 10,
+    marginTop: SIZE.sml_margin,
   },
   thirdAreaCard: {
     height: 200,
     width: 300,
     backgroundColor: "white",
-    marginRight: 20,
+    marginRight: SIZE.big_margin,
   },
   thirdAreaCardImg: {
     height: 200,
     width: 300,
     position: "absolute",
-    borderRadius: 10,
+    borderRadius: SIZE.sml_radius,
   },
   title: {
-    paddingHorizontal: 20,
+    paddingHorizontal: SIZE.big_padding,
+    marginTop: SIZE.sml_margin,
   },
   titleText: {
     fontSize: 20,

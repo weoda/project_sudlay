@@ -10,7 +10,7 @@ import {
   ImageBackground,
   TextInput,
 } from "react-native";
-import { icons, COLORS, FONTS, images } from "../constants";
+import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 // Контекст
 import { PageContext } from "../context";
 
@@ -37,9 +37,9 @@ const Login = ({ navigation }) => {
           backgroundColor: "white",
           position: "absolute",
           bottom: 0,
-          paddingHorizontal: 20,
-          paddingTop: 30,
-          paddingBottom: 30,
+          paddingHorizontal: SIZE.big_padding,
+          paddingTop: SIZE.sml_padding * 3,
+          paddingBottom: SIZE.sml_padding * 3,
         }}
       >
         <View style={{}}>
@@ -65,7 +65,7 @@ const Login = ({ navigation }) => {
           <View
             style={{
               height: 65,
-              paddingVertical: 10,
+              paddingVertical: SIZE.sml_padding,
             }}
           >
             <View style={[styles.searchArea, styles.shadow]}>
@@ -85,7 +85,7 @@ const Login = ({ navigation }) => {
                   width: 300,
                   height: 48,
                   backgroundColor: "white",
-                  marginLeft: 10,
+                  marginLeft: SIZE.sml_margin,
                 }}
               />
             </View>
@@ -113,7 +113,7 @@ const Login = ({ navigation }) => {
                   width: 300,
                   height: 48,
                   backgroundColor: "white",
-                  marginLeft: 10,
+                  marginLeft: SIZE.sml_margin,
                 }}
               />
             </View>
@@ -123,7 +123,7 @@ const Login = ({ navigation }) => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              marginTop: 60,
+              marginTop: SIZE.sml_margin * 6,
             }}
           >
             <TouchableOpacity
@@ -133,7 +133,7 @@ const Login = ({ navigation }) => {
                 width: 174,
                 borderWidth: 2,
                 borderColor: COLORS.primary,
-                borderRadius: 10,
+                borderRadius: SIZE.sml_radius,
                 alignItems: "center",
                 justifyContent: "center",
               }}
@@ -146,7 +146,7 @@ const Login = ({ navigation }) => {
                 height: 48,
                 width: 174,
                 backgroundColor: COLORS.primary,
-                borderRadius: 10,
+                borderRadius: SIZE.sml_radius,
                 alignItems: "center",
                 justifyContent: "center",
               }}
@@ -166,14 +166,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ffffff",
-    marginTop: 30,
+    marginTop: SIZE.sml_margin * 3,
   },
   searchArea: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 10,
-    borderRadius: 10,
+    paddingHorizontal: SIZE.sml_padding,
+    borderRadius: SIZE.sml_radius,
     backgroundColor: "white",
   },
   shadow: {

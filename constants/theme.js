@@ -11,17 +11,31 @@ export const COLORS = {
 };
 
 export const SIZE = {
-  radius: 10,
-  main_logo_size: 24,
+  sml_radius: 10,
+  big_radius: 20,
+  sml_padding: 10,
+  big_padding: 20,
+  sml_margin: 10,
+  big_margin: 20,
+  big_text: 24,
+  mid_text: 20,
+  sml_text: 16,
   width,
   height,
 };
 
 export const FONTS = {
-  large_logo: {
-    fontFamily: "Sansation_Bold",
-    fontSize: SIZE.main_logo_size,
-    lineHeight: 1,
+  largeText: {
+    fontFamily: "Roboto",
+    fontSize: SIZE.big_text,
+  },
+  midText: {
+    fontFamily: "normal",
+    fontSize: SIZE.mid_text,
+  },
+  smlText: {
+    fontFamily: "normal",
+    fontSize: SIZE.sml_text,
   },
 };
 
