@@ -8,8 +8,10 @@ import {
   ScrollView,
 } from "react-native";
 import { icons, COLORS, FONTS } from "../constants";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = ({ ...props }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -17,64 +19,58 @@ const Header = ({ ...props }) => {
         height: 72,
       }}
     >
-      <TouchableOpacity
-        style={{
-          width: 50,
-          paddingLeft: 20,
-          justifyContent: "center",
-        }}
-      >
+      <TouchableOpacity onPress={() => props.leftPress()} style={styles.btn}>
         <Image
-          source={null}
+          source={props.leftIcon}
           resizeMode="contain"
-          style={{
-            tintColor: COLORS.primary,
-            width: 24,
-            height: 24,
-          }}
+          style={styles.btnIcon}
         />
       </TouchableOpacity>
 
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <View
-          style={{
-            width: "70%",
-            height: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              fontFamily: "Roboto",
-              color: COLORS.primary,
-            }}
-          >
-            SUDLAY
-          </Text>
+        <View style={styles.textArea}>
+          <Text style={styles.mainText}>{props.text}</Text>
         </View>
       </View>
 
       <TouchableOpacity
-        style={{
-          width: 50,
-          paddingRight: 20,
-          justifyContent: "center",
-        }}
+        onPress={() => navigation.navigate(`${props.rightPress}`)}
+        style={styles.btn}
       >
         <Image
-          source={icons.question}
+          source={props.rightIcon}
           resizeMode="contain"
-          style={{
-            tintColor: COLORS.primary,
-            width: 20,
-            height: 20,
-          }}
+          style={styles.btnIcon}
         />
       </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  btn: {
+    width: 60,
+    paddingHorizontal: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  btnIcon: {
+    tintColor: COLORS.primary,
+    width: 20,
+    height: 20,
+  },
+  textArea: {
+    width: "70%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  mainText: {
+    fontSize: 20,
+    fontFamily: "",
+    fontWeight: "bold",
+    color: COLORS.primary,
+  },
+});
 
 export default Header;

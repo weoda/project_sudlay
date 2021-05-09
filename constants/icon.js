@@ -16,6 +16,7 @@ const arrow = require("../assets/icon/arrow.png");
 const question = require("../assets/icon/question.png");
 const playArrow = require("../assets/icon/playArrow.png");
 const star = require("../assets/icon/star.png");
+const loupe = require("../assets/icon/loupe.png");
 export default {
   back,
   envelope,
@@ -36,4 +37,5 @@ export default {
   question,
   playArrow,
   star,
+  loupe,
 };

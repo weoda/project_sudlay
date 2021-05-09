@@ -6,12 +6,17 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS } from "../constants";
+import { icons, COLORS, FONTS, images } from "../constants";
+import ProgressCircle from "react-native-progress-circle";
+import { useNavigation } from "@react-navigation/native";
 
 const OwnedCourseCard = ({ ...props }) => {
+  const navigation = useNavigation();
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => navigation.navigate(`${props.press}`)}
       style={{
         width: 180,
         height: 320,
@@ -21,11 +26,20 @@ const OwnedCourseCard = ({ ...props }) => {
         flexDirection: "column",
       }}
     >
+      <ImageBackground
+        source={props.bgImage}
+        imageStyle={{ borderRadius: 10 }}
+        style={{
+          height: 320,
+          width: 180,
+          position: "absolute",
+          borderRadius: 10,
+        }}
+      />
       <View
         style={{
           padding: 10,
           height: "50%",
-          backgroundColor: "blue",
         }}
       >
         <Text style={{ fontSize: 24, color: "white" }}>{props.text}</Text>
@@ -34,20 +48,25 @@ const OwnedCourseCard = ({ ...props }) => {
         style={{
           padding: 10,
           height: "50%",
-          backgroundColor: "green",
+          backgroundColor: "rgba(255, 255, 255, 0.5)",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <View
-          style={{
-            backgroundColor: "white",
-            height: 120,
-            width: 120,
-          }}
-        ></View>
+        <ProgressCircle
+          percent={props.percent}
+          radius={60}
+          borderWidth={8}
+          color={COLORS.primary}
+          shadowColor="#E0E0E0"
+          bgColor="#fff"
+        >
+          <Text
+            style={{ fontSize: 24, color: COLORS.primary }}
+          >{`${props.percent}%`}</Text>
+        </ProgressCircle>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

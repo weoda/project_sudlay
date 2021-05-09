@@ -16,8 +16,11 @@ const Home = ({ navigation }) => {
   let a = [0, 1, 2];
   return (
     <View style={styles.container}>
-      <Header />
+      <Header leftIcon={null} rightIcon={icons.question} text={"SUDLAY"} />
       <ScrollView style={styles.mainBody}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Таны сургалтын үйл явц</Text>
+        </View>
         <View style={styles.firstArea}>
           {a.map(() => {
             return (
@@ -57,18 +60,25 @@ const Home = ({ navigation }) => {
             );
           })}
         </View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Санал болгох</Text>
+        </View>
         <ScrollView horizontal={true} style={styles.secondArea}>
           {a.map(() => {
             return (
               <SuggestCard
+                nameColor={COLORS.gray}
                 name={"Газарзүй"}
                 number={"42 сэдэв"}
                 value={"1000 оноо"}
-                navigation
+                bgImage={images.compass}
               />
             );
           })}
         </ScrollView>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Урамшуулал</Text>
+        </View>
         <ScrollView horizontal={true} style={styles.thirdArea}>
           {a.map(() => {
             return (
@@ -151,6 +161,13 @@ const styles = StyleSheet.create({
     width: 300,
     backgroundColor: "white",
     marginRight: 20,
+  },
+  header: {
+    paddingHorizontal: 20,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
   shadow: {
     shadowColor: COLORS.primary,

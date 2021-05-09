@@ -8,6 +8,7 @@ import Profile from "./screens/Profile";
 import Tabs from "./navigation/tabs";
 import Detail from "./screens/Detail";
 import Settings from "./screens/Settings";
+import FAQ from "./screens/FAQ";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -24,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Detail" component={Detail} />
         <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="FAQ" component={FAQ} />
       </Stack.Navigator>
     </NavigationContainer>
   );

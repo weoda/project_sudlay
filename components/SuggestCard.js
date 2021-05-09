@@ -29,7 +29,7 @@ const SuggestCard = ({ ...props }) => {
       ]}
     >
       <ImageBackground
-        source={images.compass}
+        source={props.bgImage}
         imageStyle={{ borderRadius: 10 }}
         style={{
           height: 200,
@@ -39,7 +39,13 @@ const SuggestCard = ({ ...props }) => {
         }}
       />
       <View style={{ height: "75%" }}>
-        <Text style={{ fontSize: 20, fontWeight: "bold", color: COLORS.gray }}>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: "bold",
+            color: `${props.nameColor}`,
+          }}
+        >
           {props.name}
         </Text>
       </View>

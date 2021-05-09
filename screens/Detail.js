@@ -7,16 +7,38 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { icons, COLORS, FONTS } from "../constants";
+import { icons, COLORS, FONTS, images } from "../constants";
 import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 const Detail = () => {
+  const navigation = useNavigation();
+
   let a = [0, 1, 2];
   return (
     <View style={styles.container}>
-      <Header />
+      <Header
+        leftIcon={icons.arrow}
+        rightIcon={icons.question}
+        text={"ХИЧЭЭЛ"}
+        leftPress={() => {
+          navigation.goBack();
+        }}
+        rightPress={"FAQ"}
+      />
+      {/* <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={{ width: 200, height: 100, backgroundColor: "red" }}
+      /> */}
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
-        <View style={{ height: 300, backgroundColor: "grey" }}></View>
+        <Image
+          source={images.compass}
+          resizeMode="cover"
+          style={{
+            width: "100%",
+            height: 300,
+          }}
+        />
         <View
           style={{
             display: "flex",
@@ -31,17 +53,32 @@ const Detail = () => {
               height: 48,
               width: 48,
               marginRight: 10,
-              backgroundColor: "purple",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "#E3E3E3",
+              borderRadius: 10,
             }}
-          ></View>
+          >
+            <Image
+              source={icons.star}
+              resizeMode="contain"
+              style={{
+                width: 28,
+                height: 28,
+                tintColor: COLORS.primary,
+              }}
+            />
+          </View>
           <View style={{ display: "flex", flexDirection: "column" }}>
-            <Text>Одон орон судлал</Text>
+            <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+              Одон орон судлал
+            </Text>
             <View style={{}}>
               <Text>42 сэдэв</Text>
             </View>
           </View>
         </View>
-        <View style={{ height: 180, backgroundColor: "yellow" }}>
+        <View style={{ height: 180 }}>
           <Text
             style={{
               fontSize: 16,
@@ -55,17 +92,17 @@ const Detail = () => {
             diam tristique, rutrum lorem et, viverra purus. Nunc consequat
             ultrices tortor, in faucibus purus cursus sed. Proin bibendum
             consequat odio, at eleifend tellus laoreet vitae. Vestibulum
-            ultricies erat ...цааш
+            ultricies erat
           </Text>
         </View>
-        <View style={{ padding: 20, backgroundColor: "pink" }}>
+        <View style={{ padding: 20 }}>
           <Text
             style={{ fontSize: 16, fontWeight: "bold", color: COLORS.gray }}
           >
             Үнэ: 1000 оноо
           </Text>
         </View>
-        <View style={{ padding: 20, backgroundColor: "cyan", height: 72 }}>
+        <View style={{ padding: 20, height: 72 }}>
           <View
             style={{
               alignItems: "center",
@@ -87,42 +124,50 @@ const Detail = () => {
             </Text>
           </View>
         </View>
-        <View style={{ padding: 20, backgroundColor: "pink" }}>
-          <Text style={{ fontSize: 16, color: COLORS.black }}>Хичээлүүд</Text>
+        <View style={{ padding: 20 }}>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>Хичээлүүд</Text>
+          </View>
         </View>
         <View
           style={{
             display: "flex",
             flexDirection: "column",
-            backgroundColor: "green",
             paddingHorizontal: 20,
             paddingBottom: 60,
           }}
         >
-          {a.map(() => {
+          {a.map((num) => {
             return (
               <View
-                style={{
-                  height: 72,
-                  backgroundColor: "white",
-                  display: "flex",
-                  flexDirection: "row",
-                  marginBottom: 20,
-                }}
+                style={[
+                  {
+                    height: 72,
+                    backgroundColor: "white",
+                    display: "flex",
+                    flexDirection: "row",
+                    marginBottom: 20,
+                    borderRadius: 10,
+                  },
+                  styles.shadow,
+                ]}
               >
                 <View
                   style={{
                     height: "100%",
                     width: 72,
-                    backgroundColor: "gray",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
                   <Text
-                    style={{ color: "white", fontSize: 24, fontWeight: "bold" }}
+                    style={{
+                      color: COLORS.gray,
+                      fontSize: 24,
+                      fontWeight: "bold",
+                    }}
                   >
-                    1
+                    {num}
                   </Text>
                 </View>
                 <View
@@ -131,7 +176,6 @@ const Detail = () => {
                     flexDirection: "column",
                     height: "100%",
                     width: "60%",
-                    backgroundColor: "pink",
                     paddingLeft: 0,
                     justifyContent: "center",
                   }}
@@ -141,9 +185,8 @@ const Detail = () => {
                   </Text>
                   <Text style={{}}>Видео</Text>
                 </View>
-                <View
+                <TouchableOpacity
                   style={{
-                    backgroundColor: "gray",
                     width: "21%",
                     alignItems: "center",
                     justifyContent: "center",
@@ -158,7 +201,7 @@ const Detail = () => {
                       tintColor: COLORS.secondary,
                     }}
                   />
-                </View>
+                </TouchableOpacity>
               </View>
             );
           })}
@@ -176,5 +219,21 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#F9F9F9",
     marginTop: 30,
+  },
+  header: {},
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  shadow: {
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+
+    elevation: 10,
   },
 });

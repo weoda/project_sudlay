@@ -6,35 +6,61 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  ImageBackground,
 } from "react-native";
-import { icons, COLORS, FONTS } from "../constants";
+import { icons, COLORS, FONTS, images } from "../constants";
 import Header from "../components/Header";
 import OwnedCourseCard from "../components/OwnedCourseCard";
 const Profile = ({ navigation }) => {
   let a = [0, 1, 2];
   return (
     <View style={styles.container}>
-      <Header />
+      <Header
+        leftIcon={null}
+        rightIcon={icons.question}
+        text={"SUDLAY"}
+        leftPress={null}
+        rightPress={"FAQ"}
+      />
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            height: 200,
-            backgroundColor: "red",
-            margin: 20,
-            alignItems: "center",
-            paddingHorizontal: 20,
-          }}
+          style={[
+            {
+              display: "flex",
+              flexDirection: "row",
+              height: 200,
+              backgroundColor: "white",
+              margin: 20,
+              alignItems: "center",
+              paddingHorizontal: 20,
+              borderRadius: 10,
+            },
+            styles.shadow,
+          ]}
         >
           <View
-            style={{ height: 150, width: 150, backgroundColor: "white" }}
-          ></View>
+            style={{
+              height: 150,
+              width: 150,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ImageBackground
+              source={images.profile}
+              imageStyle={{ borderRadius: 100 }}
+              style={{
+                height: 128,
+                width: 128,
+                position: "absolute",
+                borderRadius: 10,
+              }}
+            />
+          </View>
           <View
             style={{
               height: 150,
               width: 180,
-              backgroundColor: "pink",
               display: "flex",
               flexDirection: "column",
             }}
@@ -42,7 +68,6 @@ const Profile = ({ navigation }) => {
             <View
               style={{
                 height: 25,
-                backgroundColor: "yellow",
                 display: "flex",
                 flexDirection: "row",
               }}
@@ -57,7 +82,6 @@ const Profile = ({ navigation }) => {
             <View
               style={{
                 height: 25,
-                backgroundColor: "yellow",
                 display: "flex",
                 flexDirection: "row",
               }}
@@ -72,7 +96,6 @@ const Profile = ({ navigation }) => {
             <View
               style={{
                 height: 25,
-                backgroundColor: "yellow",
                 display: "flex",
                 flexDirection: "row",
               }}
@@ -87,7 +110,6 @@ const Profile = ({ navigation }) => {
             <View
               style={{
                 height: 25,
-                backgroundColor: "yellow",
                 display: "flex",
                 flexDirection: "row",
               }}
@@ -102,7 +124,6 @@ const Profile = ({ navigation }) => {
             <View
               style={{
                 height: 50,
-                backgroundColor: "blue",
                 display: "flex",
                 flexDirection: "row",
               }}
@@ -112,10 +133,11 @@ const Profile = ({ navigation }) => {
                   width: "50%",
                   justifyContent: "center",
                   alignItems: "center",
-                  backgroundColor: "green",
                 }}
               >
-                <Text>Засварлах</Text>
+                <Text style={{ fontWeight: "bold", color: COLORS.secondary }}>
+                  Засварлах
+                </Text>
               </View>
               <TouchableOpacity
                 onPress={() => navigation.navigate("Settings")}
@@ -125,23 +147,34 @@ const Profile = ({ navigation }) => {
                   alignItems: "center",
                 }}
               >
-                <Text>Тохиргоо</Text>
+                <Text style={{ fontWeight: "bold", color: COLORS.primary }}>
+                  Тохиргоо
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
+        </View>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>Санал болгох</Text>
         </View>
         <ScrollView
           horizontal={true}
           style={{
             height: 370,
-            backgroundColor: "pink",
             display: "flex",
             flexDirection: "row",
             padding: 20,
           }}
         >
           {a.map(() => {
-            return <OwnedCourseCard text={"test1test1test1"} />;
+            return (
+              <OwnedCourseCard
+                press={"Detail"}
+                text={"Одон орон судлал"}
+                bgImage={images.car}
+                percent={30}
+              />
+            );
           })}
         </ScrollView>
       </ScrollView>
@@ -157,5 +190,23 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#F9F9F9",
     marginTop: 30,
+  },
+  header: {
+    paddingHorizontal: 20,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  shadow: {
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+
+    elevation: 10,
   },
 });
