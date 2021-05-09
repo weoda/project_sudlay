@@ -1,10 +1,161 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useContext } from "react";
+//Login компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  ImageBackground,
+  TextInput,
+} from "react-native";
+import { icons, COLORS, FONTS, images } from "../constants";
+// Контекст
+import { PageContext } from "../context";
 
-const Login = () => {
+// Login компонент "default export" хийсэн!!!
+const Login = ({ navigation }) => {
+  const [Logged, setLogged] = useContext(PageContext);
+  function changeLoginState() {
+    setLogged((Logged) => !Logged);
+  }
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
+      <ImageBackground
+        source={images.backImage}
+        style={{
+          height: "100%",
+          width: "100%",
+          position: "absolute",
+        }}
+      />
+      <View
+        style={{
+          width: "100%",
+          height: "50%",
+          backgroundColor: "white",
+          position: "absolute",
+          bottom: 0,
+          paddingHorizontal: 20,
+          paddingTop: 30,
+          paddingBottom: 30,
+        }}
+      >
+        <View style={{}}>
+          <Text
+            style={{
+              fontSize: 24,
+              color: COLORS.primary,
+              fontWeight: "bold",
+            }}
+          >
+            Нэвтрэх
+          </Text>
+        </View>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Text style={{ color: COLORS.gray, marginTop: 10 }}>
+            Та өөрийн хэрэглэгчийн нэр, нууц үгээ ашиглан нэвтэрнэ үү.
+          </Text>
+          <View
+            style={{
+              height: 65,
+              paddingVertical: 10,
+            }}
+          >
+            <View style={[styles.searchArea, styles.shadow]}>
+              <Image
+                source={icons.userLogin}
+                resizeMode="contain"
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: COLORS.gray,
+                }}
+              />
+              <TextInput
+                placeholder={"Нэвтрэх нэр"}
+                keyboardType={"default"}
+                style={{
+                  width: 300,
+                  height: 48,
+                  backgroundColor: "white",
+                  marginLeft: 10,
+                }}
+              />
+            </View>
+          </View>
+          <View
+            style={{
+              height: 65,
+              paddingVertical: 10,
+            }}
+          >
+            <View style={[styles.searchArea, styles.shadow]}>
+              <Image
+                source={icons.lock}
+                resizeMode="contain"
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: COLORS.gray,
+                }}
+              />
+              <TextInput
+                placeholder={"Нууц үг"}
+                keyboardType={"default"}
+                style={{
+                  width: 300,
+                  height: 48,
+                  backgroundColor: "white",
+                  marginLeft: 10,
+                }}
+              />
+            </View>
+          </View>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginTop: 60,
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={{
+                height: 48,
+                width: 174,
+                borderWidth: 2,
+                borderColor: COLORS.primary,
+                borderRadius: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: COLORS.primary }}>БУЦАХ</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => changeLoginState()}
+              style={{
+                height: 48,
+                width: 174,
+                backgroundColor: COLORS.primary,
+                borderRadius: 10,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>НЭВТРЭХ</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
@@ -15,7 +166,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ffffff",
+    marginTop: 30,
+  },
+  searchArea: {
+    display: "flex",
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    backgroundColor: "white",
+  },
+  shadow: {
+    shadowColor: COLORS.primary,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 6.27,
+
+    elevation: 10,
   },
 });

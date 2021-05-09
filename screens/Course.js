@@ -1,4 +1,5 @@
 import React from "react";
+//Course компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import {
   View,
   Text,
@@ -10,9 +11,11 @@ import {
   ImageBackground,
 } from "react-native";
 import { icons, COLORS, FONTS, images } from "../constants";
+// Course компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import SuggestCard from "../components/SuggestCard";
 
+// Course компонент "default export" хийсэн!!!
 const Course = ({ navigation }) => {
   let a = [0, 1, 2];
   return (

@@ -1,23 +1,22 @@
 import React from "react";
+//tabs компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import { View, Image, TouchableOpacity } from "react-native";
 import {
   createBottomTabNavigator,
   BottomTabBar,
 } from "@react-navigation/bottom-tabs";
+//tabs компонентэд ашиглагдах нэмэлт сан
 import Svg, { Path } from "react-native-svg";
 import { COLORS, icons } from "../constants";
+//tabs компонентэд ашиглагдах жижиг компонентүүд
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Course from "../screens/Course";
-// test
-import Detail from "../screens/Detail";
-import Settings from "../screens/Settings";
 
+// Menu буюу олон сонголтод цэсний загвар
 const Tab = createBottomTabNavigator();
-
 const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
   var isSelected = accessibilityState.selected;
-
   if (isSelected) {
     return (
       <View style={{ flex: 1, alignItems: "center" }}>
@@ -65,8 +64,10 @@ const TabBarCustomButton = ({ accessibilityState, children, onPress }) => {
   }
 };
 
+// Tabs компонент "default export" хийсэн!!!
 const Tabs = () => {
   return (
+    // Олон сонголтод цэсний бүрэлдүүлбэр компонентүүдийг нэгдсэн байдлаар Navigator-т тусгаж өгнө
     <Tab.Navigator
       tabBarOptions={{
         showLabel: false,
@@ -135,42 +136,6 @@ const Tabs = () => {
           tabBarButton: (props) => <TabBarCustomButton {...props} />,
         }}
       />
-      {/* <Tab.Screen
-        name="Detail"
-        component={Detail}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Image
-              source={icons.arrow}
-              resizeMode="contain"
-              style={{
-                width: 28,
-                height: 28,
-                tintColor: focused ? COLORS.primary : COLORS.gray,
-              }}
-            />
-          ),
-          tabBarButton: (props) => <TabBarCustomButton {...props} />,
-        }}
-      /> */}
-      {/* <Tab.Screen
-        name="Settings"
-        component={Settings}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Image
-              source={icons.question}
-              resizeMode="contain"
-              style={{
-                width: 28,
-                height: 28,
-                tintColor: focused ? COLORS.primary : COLORS.gray,
-              }}
-            />
-          ),
-          tabBarButton: (props) => <TabBarCustomButton {...props} />,
-        }}
-      /> */}
     </Tab.Navigator>
   );
 };

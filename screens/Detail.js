@@ -1,4 +1,5 @@
 import React from "react";
+//Detail компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import {
   View,
   Text,
@@ -8,9 +9,11 @@ import {
   ScrollView,
 } from "react-native";
 import { icons, COLORS, FONTS, images } from "../constants";
+// Detail компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
+// Detail компонент "default export" хийсэн!!!
 const Detail = () => {
   const navigation = useNavigation();
 
@@ -26,39 +29,14 @@ const Detail = () => {
         }}
         rightPress={"FAQ"}
       />
-      {/* <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={{ width: 200, height: 100, backgroundColor: "red" }}
-      /> */}
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <Image
           source={images.compass}
           resizeMode="cover"
-          style={{
-            width: "100%",
-            height: 300,
-          }}
+          style={styles.courseImg}
         />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            padding: 20,
-            height: 72,
-            alignItems: "center",
-          }}
-        >
-          <View
-            style={{
-              height: 48,
-              width: 48,
-              marginRight: 10,
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3E3E3",
-              borderRadius: 10,
-            }}
-          >
+        <View style={styles.courseTitleHeader}>
+          <View style={styles.courseTitleIcon}>
             <Image
               source={icons.star}
               resizeMode="contain"
@@ -79,14 +57,7 @@ const Detail = () => {
           </View>
         </View>
         <View style={{ height: 180 }}>
-          <Text
-            style={{
-              fontSize: 16,
-              paddingHorizontal: 20,
-              color: COLORS.gray,
-              textAlign: "justify",
-            }}
-          >
+          <Text style={styles.courseDesc}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis
             est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae
             diam tristique, rutrum lorem et, viverra purus. Nunc consequat
@@ -103,16 +74,7 @@ const Detail = () => {
           </Text>
         </View>
         <View style={{ padding: 20, height: 72 }}>
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              paddingVertical: 10,
-              backgroundColor: COLORS.secondary,
-              height: 48,
-              borderRadius: 10,
-            }}
-          >
+          <View style={styles.courseBtn}>
             <Text
               style={{
                 fontFamily: "Roboto",
@@ -129,37 +91,11 @@ const Detail = () => {
             <Text style={styles.headerText}>Хичээлүүд</Text>
           </View>
         </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            paddingHorizontal: 20,
-            paddingBottom: 60,
-          }}
-        >
+        <View style={styles.courseMembers}>
           {a.map((num) => {
             return (
-              <View
-                style={[
-                  {
-                    height: 72,
-                    backgroundColor: "white",
-                    display: "flex",
-                    flexDirection: "row",
-                    marginBottom: 20,
-                    borderRadius: 10,
-                  },
-                  styles.shadow,
-                ]}
-              >
-                <View
-                  style={{
-                    height: "100%",
-                    width: 72,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+              <View style={[styles.courseMemberComponent, styles.shadow]}>
+                <View style={styles.courseMemberI}>
                   <Text
                     style={{
                       color: COLORS.gray,
@@ -170,16 +106,7 @@ const Detail = () => {
                     {num}
                   </Text>
                 </View>
-                <View
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "100%",
-                    width: "60%",
-                    paddingLeft: 0,
-                    justifyContent: "center",
-                  }}
-                >
+                <View style={styles.courseMemberTitle}>
                   <Text style={{ fontWeight: "bold" }}>
                     Гар урлал ба аж ахуй
                   </Text>
@@ -224,6 +151,68 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  courseImg: {
+    width: "100%",
+    height: 300,
+  },
+  courseTitleHeader: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 20,
+    height: 72,
+    alignItems: "center",
+  },
+  courseTitleIcon: {
+    height: 48,
+    width: 48,
+    marginRight: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#E3E3E3",
+    borderRadius: 10,
+  },
+  courseDesc: {
+    fontSize: 16,
+    paddingHorizontal: 20,
+    color: COLORS.gray,
+    textAlign: "justify",
+  },
+  courseBtn: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 10,
+    backgroundColor: COLORS.secondary,
+    height: 48,
+    borderRadius: 10,
+  },
+  courseMembers: {
+    display: "flex",
+    flexDirection: "column",
+    paddingHorizontal: 20,
+    paddingBottom: 60,
+  },
+  courseMemberComponent: {
+    height: 72,
+    backgroundColor: "white",
+    display: "flex",
+    flexDirection: "row",
+    marginBottom: 20,
+    borderRadius: 10,
+  },
+  courseMemberI: {
+    height: "100%",
+    width: 72,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  courseMemberTitle: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    width: "60%",
+    paddingLeft: 0,
+    justifyContent: "center",
   },
   shadow: {
     shadowColor: COLORS.primary,

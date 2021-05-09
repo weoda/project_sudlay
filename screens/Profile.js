@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+//Profile компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import {
   View,
   Text,
@@ -9,10 +10,19 @@ import {
   ImageBackground,
 } from "react-native";
 import { icons, COLORS, FONTS, images } from "../constants";
+// Profile компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import OwnedCourseCard from "../components/OwnedCourseCard";
+//Контекст
+import { PageContext } from "../context";
+
+// Profile компонент "default export" хийсэн!!!
 const Profile = ({ navigation }) => {
   let a = [0, 1, 2];
+  const [Logged, setLogged] = useContext(PageContext);
+  function loginStateChange() {
+    setLogged((Logged) => !Logged);
+  }
   return (
     <View style={styles.container}>
       <Header
@@ -23,21 +33,7 @@ const Profile = ({ navigation }) => {
         rightPress={"FAQ"}
       />
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
-        <View
-          style={[
-            {
-              display: "flex",
-              flexDirection: "row",
-              height: 200,
-              backgroundColor: "white",
-              margin: 20,
-              alignItems: "center",
-              paddingHorizontal: 20,
-              borderRadius: 10,
-            },
-            styles.shadow,
-          ]}
-        >
+        <View style={[styles.profileCard, styles.shadow]}>
           <View
             style={{
               height: 150,
@@ -128,7 +124,8 @@ const Profile = ({ navigation }) => {
                 flexDirection: "row",
               }}
             >
-              <View
+              <TouchableOpacity
+                onPress={() => loginStateChange()}
                 style={{
                   width: "50%",
                   justifyContent: "center",
@@ -136,9 +133,9 @@ const Profile = ({ navigation }) => {
                 }}
               >
                 <Text style={{ fontWeight: "bold", color: COLORS.secondary }}>
-                  Засварлах
+                  Гарах
                 </Text>
-              </View>
+              </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => navigation.navigate("Settings")}
                 style={{
@@ -154,8 +151,8 @@ const Profile = ({ navigation }) => {
             </View>
           </View>
         </View>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Санал болгох</Text>
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Санал болгох</Text>
         </View>
         <ScrollView
           horizontal={true}
@@ -191,12 +188,22 @@ const styles = StyleSheet.create({
     backgroundColor: "#F9F9F9",
     marginTop: 30,
   },
-  header: {
+  title: {
     paddingHorizontal: 20,
   },
-  headerText: {
+  titleText: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  profileCard: {
+    display: "flex",
+    flexDirection: "row",
+    height: 200,
+    backgroundColor: "white",
+    margin: 20,
+    alignItems: "center",
+    paddingHorizontal: 20,
+    borderRadius: 10,
   },
   shadow: {
     shadowColor: COLORS.primary,

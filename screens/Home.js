@@ -1,4 +1,5 @@
 import React from "react";
+//Home компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import {
   View,
   Text,
@@ -9,26 +10,36 @@ import {
   ImageBackground,
 } from "react-native";
 import { icons, COLORS, FONTS, images } from "../constants";
+// Home компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
 import SuggestCard from "../components/SuggestCard";
+// Нэмэлт сангаас ашиглаж буй "progressBar"
 import * as Progress from "react-native-progress";
+
+//Home компонент "default export" хийсэн!!!
 const Home = ({ navigation }) => {
   let a = [0, 1, 2];
   return (
     <View style={styles.container}>
-      <Header leftIcon={null} rightIcon={icons.question} text={"SUDLAY"} />
+      <Header
+        leftIcon={null}
+        rightIcon={icons.question}
+        text={"SUDLAY"}
+        leftPress={null}
+        rightPress={"FAQ"}
+      />
       <ScrollView style={styles.mainBody}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Таны сургалтын үйл явц</Text>
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Таны сургалтын үйл явц</Text>
         </View>
         <View style={styles.firstArea}>
           {a.map(() => {
             return (
               <TouchableOpacity
                 onPress={() => navigation.navigate("Detail")}
-                style={[styles.firstAreaButton, styles.shadow]}
+                style={[styles.firstAreaCard, styles.shadow]}
               >
-                <View style={styles.firstAreaBtnIcon}>
+                <View style={styles.firstAreaCardIcon}>
                   <Image
                     source={icons.star}
                     resizeMode="contain"
@@ -60,8 +71,8 @@ const Home = ({ navigation }) => {
             );
           })}
         </View>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Санал болгох</Text>
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Санал болгох</Text>
         </View>
         <ScrollView horizontal={true} style={styles.secondArea}>
           {a.map(() => {
@@ -76,8 +87,8 @@ const Home = ({ navigation }) => {
             );
           })}
         </ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Урамшуулал</Text>
+        <View style={styles.title}>
+          <Text style={styles.titleText}>Урамшуулал</Text>
         </View>
         <ScrollView horizontal={true} style={styles.thirdArea}>
           {a.map(() => {
@@ -86,12 +97,7 @@ const Home = ({ navigation }) => {
                 <ImageBackground
                   source={images.banner}
                   imageStyle={{ borderRadius: 10 }}
-                  style={{
-                    height: 200,
-                    width: 300,
-                    position: "absolute",
-                    borderRadius: 10,
-                  }}
+                  style={styles.thirdAreaCardImg}
                 />
               </View>
             );
@@ -132,7 +138,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
   },
-  firstAreaButton: {
+  firstAreaCard: {
     display: "flex",
     flexDirection: "row",
     padding: 10,
@@ -141,7 +147,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 20,
   },
-  firstAreaBtnIcon: {
+  firstAreaCardIcon: {
     height: 48,
     width: 48,
     marginRight: 10,
@@ -162,10 +168,16 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginRight: 20,
   },
-  header: {
+  thirdAreaCardImg: {
+    height: 200,
+    width: 300,
+    position: "absolute",
+    borderRadius: 10,
+  },
+  title: {
     paddingHorizontal: 20,
   },
-  headerText: {
+  titleText: {
     fontSize: 20,
     fontWeight: "bold",
   },

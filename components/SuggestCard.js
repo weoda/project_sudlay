@@ -1,4 +1,5 @@
 import React from "react";
+//Suggest компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import {
   View,
   Text,
@@ -10,23 +11,25 @@ import {
 } from "react-native";
 import { icons, COLORS, FONTS, images } from "../constants";
 import { useNavigation } from "@react-navigation/native";
+
+/**SuggestedCard компонент нь тухайн хэрэглэгчид санал
+ * болгож буй хичээлүүдийг харуулах зорилготой жижиг
+ * карт юм.
+ * Үүнд дараах props-ууд эцэг компонентээс дамжиж ирнэ:
+ * 1. bgImage
+ * 2. nameColor
+ * 3. name
+ * 4. number
+ * 5. value
+ */
+
+// Profile компонент "default export" хийсэн!!!
 const SuggestCard = ({ ...props }) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate("Detail")}
-      style={[
-        {
-          width: 150,
-          height: 200,
-          borderRadius: 20,
-          marginRight: 20,
-          padding: 10,
-          display: "flex",
-          flexDirection: "column",
-        },
-        styles.shadow,
-      ]}
+      style={[styles.mainBody, styles.shadow]}
     >
       <ImageBackground
         source={props.bgImage}
@@ -58,6 +61,15 @@ const SuggestCard = ({ ...props }) => {
 };
 
 const styles = StyleSheet.create({
+  mainBody: {
+    width: 150,
+    height: 200,
+    borderRadius: 20,
+    marginRight: 20,
+    padding: 10,
+    display: "flex",
+    flexDirection: "column",
+  },
   shadow: {
     shadowColor: COLORS.primary,
     shadowOffset: {

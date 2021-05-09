@@ -1,17 +1,25 @@
-import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  ScrollView,
-} from "react-native";
+import React, { useContext } from "react";
+//Header компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { icons, COLORS, FONTS } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
+/** Header компонент нь дэлгэцийн дээд хэсэгт байрлах
+ * туслах цэс ба үүгээр буцах болон бусад үндсэн бус
+ * үйлдлүүдийг хийхэд ашиглана.
+ * Header нь дараах "props"-ийг эцэг компонентээс
+ * хүлээж авна:
+ * 1. leftIcon
+ * 2. rightIcon
+ * 3. text
+ * 4. leftPress
+ * 5. rightPress
+ */
+
+// Header компонент "default export" хийсэн!!!
 const Header = ({ ...props }) => {
   const navigation = useNavigation();
+
   return (
     <View
       style={{

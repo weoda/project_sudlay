@@ -1,10 +1,33 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+//FAQ компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
+import { icons, COLORS, FONTS, images } from "../constants";
+// FAQ компонентэд ашиглагдах жижиг компонентүүд
+import Header from "../components/Header";
+import { WebView } from "react-native-webview";
 
-const FAQ = () => {
+// FAQ компонент "default export" хийсэн!!!
+const FAQ = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>FAQ</Text>
+      <Header
+        leftIcon={icons.arrow}
+        rightIcon={null}
+        text={"FAQ"}
+        leftPress={() => {
+          navigation.goBack();
+        }}
+        rightPress={null}
+      />
+      <WebView source={{ uri: "https://sudlay123.firebaseapp.com/" }} />
     </View>
   );
 };
@@ -14,8 +37,8 @@ export default FAQ;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "column",
+    backgroundColor: "#F9F9F9",
+    marginTop: 30,
   },
 });
