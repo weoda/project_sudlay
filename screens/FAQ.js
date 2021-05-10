@@ -12,7 +12,7 @@ import {
 import { icons, COLORS, FONTS, images } from "../constants";
 // FAQ компонентэд ашиглагдах жижиг компонентүүд
 import Header from "../components/Header";
-//import { WebView } from "react-native-webview";
+import { WebView } from "react-native-webview";
 
 // FAQ компонент "default export" хийсэн!!!
 const FAQ = ({ navigation }) => {

@@ -17,7 +17,98 @@ import SuggestCard from "../components/SuggestCard";
 
 // Course компонент "default export" хийсэн!!!
 const Course = ({ navigation }) => {
-  let a = [0, 1, 2];
+  const dataSuggest = [
+    {
+      id: 1,
+      name: "Газарзүй",
+      price: 0,
+      photo: images.compass,
+      icon: icons.star,
+      state: false,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Дэлхийн хэлбэр",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 2,
+          name: "Эртний газар зүй",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 3,
+          name: "Далай",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Автомашин",
+      price: 1000,
+      photo: images.car,
+      icon: icons.star,
+      state: false,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Түүх 1",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 2,
+          name: "Форд болон Бенз",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 3,
+          name: "Дугуй",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Далай",
+      price: 500,
+      photo: images.sea,
+      icon: icons.star,
+      state: false,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Амьтан",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 2,
+          name: "Ургамал",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 3,
+          name: "Идэш",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+      ],
+    },
+  ];
   return (
     <View style={styles.container}>
       <Header
@@ -65,14 +156,15 @@ const Course = ({ navigation }) => {
           <Text style={styles.headerText}>Санал болгох</Text>
         </View>
         <ScrollView horizontal={true} style={styles.suggestCourse}>
-          {a.map(() => {
+          {dataSuggest.map((data, id) => {
             return (
               <SuggestCard
                 nameColor={COLORS.white}
-                name={"Автомашин"}
-                number={"22 сэдэв"}
-                value={"1500 оноо"}
-                bgImage={images.car}
+                name={data.name}
+                number={data.lesson.length}
+                value={data.price}
+                bgImage={data.photo}
+                data={data}
               />
             );
           })}
@@ -82,7 +174,7 @@ const Course = ({ navigation }) => {
         </View>
         <View style={styles.topCourse}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Detail")}
+            onPress={() => {}}
             style={[{ width: "100%", height: 280 }, styles.shadow]}
           >
             <ImageBackground
@@ -98,7 +190,7 @@ const Course = ({ navigation }) => {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Detail")}
+            onPress={() => {}}
             style={[
               { width: "100%", height: 280, marginTop: SIZE.big_margin },
               styles.shadow,

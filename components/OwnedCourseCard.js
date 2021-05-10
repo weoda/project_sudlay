@@ -20,18 +20,23 @@ import { useNavigation } from "@react-navigation/native";
  * 2. bgImage
  * 3. percent
  * 4. text
+ *
+ * эсвэл
+ *
+ * 1. data буюу JSON өгөгдөл ирж болно
  */
 
 // OwnedCourseCard компонент "default export" хийсэн!!!
 const OwnedCourseCard = ({ ...props }) => {
   const navigation = useNavigation();
+  const data = props.data;
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(`${props.press}`)}
+      onPress={() => navigation.navigate(`Detail`, { data })}
       style={styles.mainBody}
     >
       <ImageBackground
-        source={props.bgImage}
+        source={data.photo}
         imageStyle={{ borderRadius: 10 }}
         style={{
           height: 320,
@@ -46,20 +51,24 @@ const OwnedCourseCard = ({ ...props }) => {
           height: "50%",
         }}
       >
-        <Text style={{ fontSize: 24, color: "white" }}>{props.text}</Text>
+        <Text
+          style={{ fontSize: 24, color: COLORS.secondary, fontWeight: "bold" }}
+        >
+          {data.name}
+        </Text>
       </View>
       <View style={styles.progbrArea}>
         <ProgressCircle
-          percent={props.percent}
+          percent={data.percent * 100}
           radius={60}
           borderWidth={8}
           color={COLORS.primary}
           shadowColor="#E0E0E0"
           bgColor="#fff"
         >
-          <Text
-            style={{ fontSize: 24, color: COLORS.primary }}
-          >{`${props.percent}%`}</Text>
+          <Text style={{ fontSize: 24, color: COLORS.primary }}>{`${
+            data.percent * 100
+          }%`}</Text>
         </ProgressCircle>
       </View>
     </TouchableOpacity>

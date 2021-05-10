@@ -19,6 +19,200 @@ import * as Progress from "react-native-progress";
 //Home компонент "default export" хийсэн!!!
 const Home = ({ navigation }) => {
   let a = [0, 1, 2];
+  const dataSuggest = [
+    {
+      id: 1,
+      name: "Газарзүй",
+      price: 0,
+      photo: images.compass,
+      icon: icons.star,
+      state: false,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Дэлхийн хэлбэр",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 2,
+          name: "Эртний газар зүй",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 3,
+          name: "Далай",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Автомашин",
+      price: 1000,
+      photo: images.car,
+      icon: icons.star,
+      state: false,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Түүх 1",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 2,
+          name: "Форд болон Бенз",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 3,
+          name: "Дугуй",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Далай",
+      price: 500,
+      photo: images.sea,
+      icon: icons.star,
+      state: false,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Амьтан",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 2,
+          name: "Ургамал",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+        {
+          id: 3,
+          name: "Идэш",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+        },
+      ],
+    },
+  ];
+
+  const dataOwn = [
+    {
+      id: 1,
+      name: "Одон орон судлал",
+      photo: images.compass,
+      icon: icons.star,
+      percent: 0.66,
+      state: true,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Од",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 2,
+          name: "Нар",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 3,
+          name: "Сар",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Одон орон судлал 2",
+      photo: images.compass,
+      icon: icons.star,
+      percent: 0.33,
+      state: true,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Дэлхийн хэлбэр",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 2,
+          name: "Эртний газар зүй",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 3,
+          name: "Далай",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Одон орон судлал 3",
+      photo: images.compass,
+      icon: icons.star,
+      percent: 0.5,
+      state: true,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Дэлхийн хэлбэр",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 2,
+          name: "Эртний газар зүй",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 3,
+          name: "Далай",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+      ],
+    },
+  ];
   return (
     <View style={styles.container}>
       <Header
@@ -33,15 +227,15 @@ const Home = ({ navigation }) => {
           <Text style={styles.titleText}>Таны сургалтын үйл явц</Text>
         </View>
         <View style={styles.firstArea}>
-          {a.map(() => {
+          {dataOwn.map((data) => {
             return (
               <TouchableOpacity
-                onPress={() => navigation.navigate("Detail")}
+                onPress={() => navigation.navigate("Detail", { data })}
                 style={[styles.firstAreaCard, styles.shadow]}
               >
                 <View style={styles.firstAreaCardIcon}>
                   <Image
-                    source={icons.star}
+                    source={data.icon}
                     resizeMode="contain"
                     style={{
                       width: 28,
@@ -56,9 +250,9 @@ const Home = ({ navigation }) => {
                     flexDirection: "column",
                   }}
                 >
-                  <Text style={{ paddingBottom: 10 }}>Одон орон судлал</Text>
+                  <Text style={{ paddingBottom: 10 }}>{data.name}</Text>
                   <Progress.Bar
-                    progress={0.7}
+                    progress={data.percent}
                     width={280}
                     color={COLORS.primary}
                     unfilledColor={"#E0E0E0"}
@@ -75,14 +269,15 @@ const Home = ({ navigation }) => {
           <Text style={styles.titleText}>Санал болгох</Text>
         </View>
         <ScrollView horizontal={true} style={styles.secondArea}>
-          {a.map(() => {
+          {dataSuggest.map((data, id) => {
             return (
               <SuggestCard
-                nameColor={COLORS.gray}
-                name={"Газарзүй"}
-                number={"42 сэдэв"}
-                value={"1000 оноо"}
-                bgImage={images.compass}
+                nameColor={COLORS.white}
+                name={data.name}
+                number={data.lesson.length}
+                value={data.price}
+                bgImage={data.photo}
+                data={data}
               />
             );
           })}

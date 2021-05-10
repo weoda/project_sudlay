@@ -18,7 +18,113 @@ import { PageContext } from "../context";
 
 // Profile компонент "default export" хийсэн!!!
 const Profile = ({ navigation }) => {
-  let a = [0, 1, 2];
+  const dataOwn = [
+    {
+      id: 1,
+      name: "Одон орон судлал",
+      photo: images.compass,
+      icon: icons.star,
+      percent: 0.66,
+      state: true,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Од",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 2,
+          name: "Нар",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 3,
+          name: "Сар",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: "Одон орон судлал 2",
+      photo: images.compass,
+      icon: icons.star,
+      percent: 0.33,
+      state: true,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Дэлхийн хэлбэр",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 2,
+          name: "Эртний газар зүй",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 3,
+          name: "Далай",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+      ],
+    },
+    {
+      id: 3,
+      name: "Одон орон судлал 3",
+      photo: images.compass,
+      icon: icons.star,
+      percent: 0.5,
+      state: true,
+      desc:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      lesson: [
+        {
+          id: 1,
+          name: "Дэлхийн хэлбэр",
+          type: "Бичвэр",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 2,
+          name: "Эртний газар зүй",
+          type: "Видео",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+        {
+          id: 3,
+          name: "Далай",
+          type: "Тоглоом",
+          link: "https://sudlay123.firebaseapp.com/",
+          state: false,
+        },
+      ],
+    },
+  ];
+  const profileData = {
+    lastname: "Дорж",
+    firstname: "Бат",
+    age: 15,
+    point: 1200,
+  };
   const [Logged, setLogged] = useContext(PageContext);
   function loginStateChange() {
     setLogged((Logged) => !Logged);
@@ -72,7 +178,7 @@ const Profile = ({ navigation }) => {
                 <Text>Овог: </Text>
               </View>
               <View>
-                <Text>Бат </Text>
+                <Text>{profileData.lastname} </Text>
               </View>
             </View>
             <View
@@ -86,7 +192,7 @@ const Profile = ({ navigation }) => {
                 <Text>Нэр: </Text>
               </View>
               <View>
-                <Text>Дорж </Text>
+                <Text>{profileData.firstname} </Text>
               </View>
             </View>
             <View
@@ -97,10 +203,10 @@ const Profile = ({ navigation }) => {
               }}
             >
               <View style={{ width: "50%", alignItems: "flex-end" }}>
-                <Text>Ангилал: </Text>
+                <Text>Нас: </Text>
               </View>
               <View>
-                <Text>12 - 17 нас</Text>
+                <Text>{profileData.age}</Text>
               </View>
             </View>
             <View
@@ -114,7 +220,7 @@ const Profile = ({ navigation }) => {
                 <Text>Оноо: </Text>
               </View>
               <View>
-                <Text>1800 </Text>
+                <Text>{profileData.point} </Text>
               </View>
             </View>
             <View
@@ -163,15 +269,8 @@ const Profile = ({ navigation }) => {
             padding: SIZE.big_padding,
           }}
         >
-          {a.map(() => {
-            return (
-              <OwnedCourseCard
-                press={"Detail"}
-                text={"Одон орон судлал"}
-                bgImage={images.car}
-                percent={30}
-              />
-            );
+          {dataOwn.map((data) => {
+            return <OwnedCourseCard data={data} />;
           })}
         </ScrollView>
       </ScrollView>

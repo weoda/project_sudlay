@@ -5,7 +5,7 @@ const banner = require("../assets/img/banner.jpg");
 const car = require("../assets/img/car.jpg");
 const profile = require("../assets/img/profile.jpg");
 const backImage = require("../assets/img/backImage.png");
-
+const sea = require("../assets/img/sea.jpeg");
 export default {
   logo,
   success,
@@ -14,4 +14,5 @@ export default {
   car,
   profile,
   backImage,
+  sea,
 };

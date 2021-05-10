@@ -22,7 +22,7 @@ const Signup = ({ navigation }) => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("https://103.153.141.56:8000/user/signup", data).then((res) => {
+    axios.post("103.153.141.56:8000/user/signup", data).then((res) => {
       console.log(res);
       console.log(res.data);
     });

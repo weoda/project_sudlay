@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //Detail компонентэд ашиглагдах RN сангийн үндсэн компонентүүд
 import {
   View,
@@ -14,10 +14,16 @@ import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
 // Detail компонент "default export" хийсэн!!!
-const Detail = () => {
+const Detail = ({ route }) => {
+  const [isOwned, setOwned] = useState(null);
   const navigation = useNavigation();
+  const data = route.params.data;
+  const lsn = data.lesson;
 
-  let a = [0, 1, 2];
+  useEffect(() => {
+    setOwned(data.state);
+  }, [data.state]);
+
   return (
     <View style={styles.container}>
       <Header
@@ -31,14 +37,14 @@ const Detail = () => {
       />
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <Image
-          source={images.compass}
+          source={data.photo}
           resizeMode="cover"
           style={styles.courseImg}
         />
         <View style={styles.courseTitleHeader}>
           <View style={styles.courseTitleIcon}>
             <Image
-              source={icons.star}
+              source={data.icon}
               resizeMode="contain"
               style={{
                 width: 28,
@@ -49,90 +55,108 @@ const Detail = () => {
           </View>
           <View style={{ display: "flex", flexDirection: "column" }}>
             <Text style={{ fontWeight: "bold", fontSize: 20 }}>
-              Одон орон судлал
+              {data.name}
             </Text>
             <View style={{}}>
-              <Text>42 сэдэв</Text>
+              <Text>{`${data.lesson.length} сэдэв`}</Text>
             </View>
           </View>
         </View>
         <View style={{ height: 180 }}>
-          <Text style={styles.courseDesc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis
-            est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae
-            diam tristique, rutrum lorem et, viverra purus. Nunc consequat
-            ultrices tortor, in faucibus purus cursus sed. Proin bibendum
-            consequat odio, at eleifend tellus laoreet vitae. Vestibulum
-            ultricies erat
-          </Text>
+          <Text style={styles.courseDesc}>{data.desc}</Text>
         </View>
-        <View style={{ padding: SIZE.big_padding }}>
-          <Text
-            style={{ fontSize: 16, fontWeight: "bold", color: COLORS.gray }}
-          >
-            Үнэ: 1000 оноо
-          </Text>
-        </View>
-        <View style={{ padding: SIZE.big_padding, height: 72 }}>
-          <View style={styles.courseBtn}>
+        {isOwned ? null : (
+          <View style={{ padding: SIZE.big_padding }}>
             <Text
-              style={{
-                fontFamily: "Roboto",
-                color: COLORS.white,
-                fontSize: 15,
-              }}
+              style={{ fontSize: 16, fontWeight: "bold", color: COLORS.gray }}
             >
-              ХУДАЛДАЖ АВАХ
+              {`Үнэ: ${data.price} оноо`}
             </Text>
           </View>
-        </View>
+        )}
+        {isOwned ? null : (
+          <View
+            style={{
+              padding: SIZE.big_padding,
+              height: 72,
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => setOwned((isOwned) => !isOwned)}
+              style={styles.courseBtn}
+            >
+              <Text
+                style={{
+                  fontFamily: "Roboto",
+                  color: COLORS.white,
+                  fontSize: 15,
+                }}
+              >
+                ХУДАЛДАЖ АВАХ
+              </Text>
+            </TouchableOpacity>
+          </View>
+        )}
         <View style={{ padding: SIZE.big_padding }}>
           <View style={styles.header}>
             <Text style={styles.headerText}>Хичээлүүд</Text>
           </View>
         </View>
-        <View style={styles.courseMembers}>
-          {a.map((num) => {
-            return (
-              <View style={[styles.courseMemberComponent, styles.shadow]}>
-                <View style={styles.courseMemberI}>
-                  <Text
+        {isOwned ? (
+          <View style={styles.courseMembers}>
+            {lsn.map((obj) => {
+              return (
+                <View style={[styles.courseMemberComponent, styles.shadow]}>
+                  <View style={styles.courseMemberI}>
+                    <Text
+                      style={{
+                        color: COLORS.gray,
+                        fontSize: 24,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {obj.id}
+                    </Text>
+                  </View>
+                  <View style={styles.courseMemberTitle}>
+                    <Text style={{ fontWeight: "bold" }}>{obj.name}</Text>
+                    <Text style={{}}>{obj.type}</Text>
+                  </View>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Lesson", obj.link)}
                     style={{
-                      color: COLORS.gray,
-                      fontSize: 24,
-                      fontWeight: "bold",
+                      width: "21%",
+                      alignItems: "center",
+                      justifyContent: "center",
                     }}
                   >
-                    {num}
-                  </Text>
+                    <Image
+                      source={icons.playArrow}
+                      resizeMode="contain"
+                      style={{
+                        width: 28,
+                        height: 28,
+                        tintColor: COLORS.secondary,
+                      }}
+                    />
+                  </TouchableOpacity>
                 </View>
-                <View style={styles.courseMemberTitle}>
-                  <Text style={{ fontWeight: "bold" }}>
-                    Гар урлал ба аж ахуй
-                  </Text>
-                  <Text style={{}}>Видео</Text>
-                </View>
-                <TouchableOpacity
-                  style={{
-                    width: "21%",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Image
-                    source={icons.playArrow}
-                    resizeMode="contain"
-                    style={{
-                      width: 28,
-                      height: 28,
-                      tintColor: COLORS.secondary,
-                    }}
-                  />
-                </TouchableOpacity>
-              </View>
-            );
-          })}
-        </View>
+              );
+            })}
+          </View>
+        ) : (
+          <View
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              height: 50,
+            }}
+          >
+            <Text style={{ ...FONTS.smlText }}>
+              Худалдаж авсаны дараа үзэх эрх үүснэ
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </View>
   );

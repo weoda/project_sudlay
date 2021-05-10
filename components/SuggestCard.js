@@ -21,18 +21,23 @@ import { useNavigation } from "@react-navigation/native";
  * 3. name
  * 4. number
  * 5. value
+ *
+ * эсвэл
+ *
+ * 1. data буюу JSON өгөгдөл ирж болно
  */
 
 // Profile компонент "default export" хийсэн!!!
 const SuggestCard = ({ ...props }) => {
   const navigation = useNavigation();
+  const data = props.data;
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Detail")}
+      onPress={() => navigation.navigate("Detail", { data })}
       style={[styles.mainBody, styles.shadow]}
     >
       <ImageBackground
-        source={props.bgImage}
+        source={data.photo}
         imageStyle={{ borderRadius: 10 }}
         style={{
           height: 200,
@@ -53,9 +58,9 @@ const SuggestCard = ({ ...props }) => {
         </Text>
       </View>
       <Text style={{ color: COLORS.secondary, fontWeight: "bold" }}>
-        {props.number}
+        {`${props.number} сэдэв`}
       </Text>
-      <Text style={{ color: "white" }}>{props.value}</Text>
+      <Text style={{ color: "white" }}>{`${props.value} оноо`}</Text>
     </TouchableOpacity>
   );
 };
