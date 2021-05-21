@@ -13,12 +13,18 @@ import { icons, COLORS, FONTS, images, SIZE } from "../constants";
 import Header from "../components/Header";
 import { useNavigation } from "@react-navigation/native";
 
+/**
+ * Хичээлийн дэлгэрэнгүй мэдээллийг харуулах хэсэг
+ * @version 1.0.0
+ * @author T.Gantsogt
+ */
+
 // Detail компонент "default export" хийсэн!!!
 const Detail = ({ route }) => {
   const [isOwned, setOwned] = useState(null);
   const navigation = useNavigation();
   const data = route.params.data;
-  const lsn = data.lesson;
+  const lesson = data.lesson;
 
   useEffect(() => {
     setOwned(data.state);

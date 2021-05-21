@@ -253,7 +253,7 @@ const Home = ({ navigation }) => {
                   <Text style={{ paddingBottom: 10 }}>{data.name}</Text>
                   <Progress.Bar
                     progress={data.percent}
-                    width={280}
+                    width={SIZE.width * 0.7}
                     color={COLORS.primary}
                     unfilledColor={"#E0E0E0"}
                     borderWidth={0}

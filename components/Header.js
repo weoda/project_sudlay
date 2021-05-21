@@ -4,9 +4,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { icons, COLORS, FONTS, SIZE } from "../constants";
 import { useNavigation } from "@react-navigation/native";
 
-/** Header компонент нь дэлгэцийн дээд хэсэгт байрлах
+/**
+ * Header компонент нь дэлгэцийн дээд хэсэгт байрлах
  * туслах цэс ба үүгээр буцах болон бусад үндсэн бус
  * үйлдлүүдийг хийхэд ашиглана.
+ *
  * Header нь дараах "props"-ийг эцэг компонентээс
  * хүлээж авна:
  * 1. leftIcon
@@ -14,6 +16,9 @@ import { useNavigation } from "@react-navigation/native";
  * 3. text
  * 4. leftPress
  * 5. rightPress
+ *
+ * @version 1.0.1
+ * @author T.Gantsogt, A.Delgersaikhan
  */
 
 // Header компонент "default export" хийсэн!!!
