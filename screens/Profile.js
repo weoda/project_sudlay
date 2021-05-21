@@ -26,8 +26,7 @@ const Profile = ({ navigation }) => {
       icon: icons.star,
       percent: 0.66,
       state: true,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
       lesson: [
         {
           id: 1,
@@ -59,8 +58,7 @@ const Profile = ({ navigation }) => {
       icon: icons.star,
       percent: 0.33,
       state: true,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
       lesson: [
         {
           id: 1,
@@ -92,8 +90,7 @@ const Profile = ({ navigation }) => {
       icon: icons.star,
       percent: 0.5,
       state: true,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
       lesson: [
         {
           id: 1,

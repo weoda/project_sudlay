@@ -27,53 +27,62 @@ import { useNavigation } from "@react-navigation/native";
  */
 
 // OwnedCourseCard компонент "default export" хийсэн!!!
-const OwnedCourseCard = ({ ...props }) => {
-  const navigation = useNavigation();
-  const data = props.data;
-  return (
-    <TouchableOpacity
-      onPress={() => navigation.navigate(`Detail`, { data })}
-      style={styles.mainBody}
-    >
-      <ImageBackground
-        source={data.photo}
-        imageStyle={{ borderRadius: 10 }}
-        style={{
-          height: 320,
-          width: 180,
-          position: "absolute",
-          borderRadius: 10,
-        }}
-      />
-      <View
-        style={{
-          padding: 10,
-          height: "50%",
-        }}
+class OwnedCourseCard extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    let navigation = useNavigation();
+    let data = this.FONTSprops.data;
+    return (
+      <TouchableOpacity
+        onPress={() => navigation.navigate(`Detail`, { data })}
+        style={styles.mainBody}
       >
-        <Text
-          style={{ fontSize: 24, color: COLORS.secondary, fontWeight: "bold" }}
+        <ImageBackground
+          source={data.photo}
+          imageStyle={{ borderRadius: 10 }}
+          style={{
+            height: 320,
+            width: 180,
+            position: "absolute",
+            borderRadius: 10,
+          }}
+        />
+        <View
+          style={{
+            padding: 10,
+            height: "50%",
+          }}
         >
-          {data.name}
-        </Text>
-      </View>
-      <View style={styles.progbrArea}>
-        <ProgressCircle
-          percent={data.percent * 100}
-          radius={60}
-          borderWidth={8}
-          color={COLORS.primary}
-          shadowColor="#E0E0E0"
-          bgColor="#fff"
-        >
-          <Text style={{ fontSize: 24, color: COLORS.primary }}>{`${
-            data.percent * 100
-          }%`}</Text>
-        </ProgressCircle>
-      </View>
-    </TouchableOpacity>
-  );
-};
+          <Text
+            style={{
+              fontSize: 24,
+              color: COLORS.secondary,
+              fontWeight: "bold",
+            }}
+          >
+            {data.name}
+          </Text>
+        </View>
+        <View style={styles.progbrArea}>
+          <ProgressCircle
+            percent={data.percent * 100}
+            radius={60}
+            borderWidth={8}
+            color={COLORS.primary}
+            shadowColor="#E0E0E0"
+            bgColor="#fff"
+          >
+            <Text style={{ fontSize: 24, color: COLORS.primary }}>{`${
+              data.percent * 100
+            }%`}</Text>
+          </ProgressCircle>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   mainBody: {
