@@ -15,204 +15,52 @@ import Header from "../components/Header";
 import SuggestCard from "../components/SuggestCard";
 // Нэмэлт сангаас ашиглаж буй "progressBar"
 import * as Progress from "react-native-progress";
+import axios from "axios";
 
 //Home компонент "default export" хийсэн!!!
 const Home = ({ navigation }) => {
   let a = [0, 1, 2];
+  const [data, setData] = useState(null);
+  const [dataOwn, setDataOwn] = useState(null);
   const dataSuggest = [
     {
       id: 1,
-      name: "Газарзүй",
+      name: "Холболт салсан",
       price: 0,
-      photo: images.compass,
-      icon: icons.star,
+      photo: images.error,
+      icon: icons.error,
       state: false,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
-      lesson: [
-        {
-          id: 1,
-          name: "Дэлхийн хэлбэр",
-          type: "Бичвэр",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-        {
-          id: 2,
-          name: "Эртний газар зүй",
-          type: "Видео",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-        {
-          id: 3,
-          name: "Далай",
-          type: "Тоглоом",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Автомашин",
-      price: 1000,
-      photo: images.car,
-      icon: icons.star,
-      state: false,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
-      lesson: [
-        {
-          id: 1,
-          name: "Түүх 1",
-          type: "Бичвэр",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-        {
-          id: 2,
-          name: "Форд болон Бенз",
-          type: "Видео",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-        {
-          id: 3,
-          name: "Дугуй",
-          type: "Тоглоом",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-      ],
-    },
-    {
-      id: 3,
-      name: "Далай",
-      price: 500,
-      photo: images.sea,
-      icon: icons.star,
-      state: false,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
-      lesson: [
-        {
-          id: 1,
-          name: "Амьтан",
-          type: "Бичвэр",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-        {
-          id: 2,
-          name: "Ургамал",
-          type: "Видео",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-        {
-          id: 3,
-          name: "Идэш",
-          type: "Тоглоом",
-          link: "https://sudlay123.firebaseapp.com/",
-        },
-      ],
+      desc: "Холболт салсан байна",
     },
   ];
-
-  const dataOwn = [
+  const dataOwned = [
     {
       id: 1,
-      name: "Одон орон судлал",
-      photo: images.compass,
-      icon: icons.star,
-      percent: 0.66,
+      name: "Холболт салсан",
+      photo: images.error,
+      icon: icons.error,
+      percent: 0,
       state: true,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
-      lesson: [
-        {
-          id: 1,
-          name: "Од",
-          type: "Бичвэр",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-        {
-          id: 2,
-          name: "Нар",
-          type: "Видео",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-        {
-          id: 3,
-          name: "Сар",
-          type: "Тоглоом",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Одон орон судлал 2",
-      photo: images.compass,
-      icon: icons.star,
-      percent: 0.33,
-      state: true,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
-      lesson: [
-        {
-          id: 1,
-          name: "Дэлхийн хэлбэр",
-          type: "Бичвэр",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-        {
-          id: 2,
-          name: "Эртний газар зүй",
-          type: "Видео",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-        {
-          id: 3,
-          name: "Далай",
-          type: "Тоглоом",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-      ],
-    },
-    {
-      id: 3,
-      name: "Одон орон судлал 3",
-      photo: images.compass,
-      icon: icons.star,
-      percent: 0.5,
-      state: true,
-      desc:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis est ante. Phasellus gravida fermentum lorem et dapibus. Cras vitae diam tristique, rutrum lorem et, viverra purus. Nunc consequat ultrices tortor, in faucibus purus cursus sed. Proin bibendum consequat odio, at eleifend tellus laoreet vitae. Vestibulum ultricies erat ...цааш",
-      lesson: [
-        {
-          id: 1,
-          name: "Дэлхийн хэлбэр",
-          type: "Бичвэр",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-        {
-          id: 2,
-          name: "Эртний газар зүй",
-          type: "Видео",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-        {
-          id: 3,
-          name: "Далай",
-          type: "Тоглоом",
-          link: "https://sudlay123.firebaseapp.com/",
-          state: false,
-        },
-      ],
+      desc: "Холболт салсан",
+      lesson: null,
     },
   ];
+  useEffect(() => {
+    axios
+      .get("103.153.141.56:8000/course/list")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => setData(dataSuggest));
+
+    axios
+      .get("103.153.141.56:8000/course/ownlist")
+      .then((res) => {
+        setDataOwn(res.data);
+      })
+      .catch((err) => setDataOwn(dataOwned));
+  });
+
   return (
     <View style={styles.container}>
       <Header
